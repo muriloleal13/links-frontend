@@ -2,17 +2,14 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/AccountActions';
+import { getFormData } from '../../helpers/form';
 
 const SignIn = (props) => {
   const { account, signIn } = props;
 
   const submitHandler = (e) =>{
     e.preventDefault();
-
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    
-    signIn(data);
+    signIn(getFormData(e));
   };
 
   if(account) return <Redirect to="/manage/links"/>;

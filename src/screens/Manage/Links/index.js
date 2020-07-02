@@ -11,7 +11,7 @@ const Links = () => {
           <h1>Links</h1>
         </div>
         <div className="col text-right align-self-bottom pt-2">
-          <Link to="/manage/links-create" className="btn btn-primary">
+          <Link to="/manage/links/create" className="btn btn-primary">
             Add
           </Link>
         </div>
