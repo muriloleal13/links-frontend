@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import Layout from '../../../Layouts/Manage/';
 import { getFormData } from '../../../../helpers/form';
 import { linkCreate } from '../../../../actions/LinkActions';
+import { Redirect } from 'react-router-dom';
 
-const Create = ({ link, linkCreate}) => {
+const Create = ({ link, linkCreate }) => {
   const submitHandler = (e) =>{
     e.preventDefault();
     linkCreate(getFormData(e));
   };
+
+  if(link) return <Redirect to="/manage/links"/>;
 
   return (
     <Layout>

@@ -1,7 +1,8 @@
-import { LINK_CREATE, LINK_EDIT, LINK_DELETE } from '../actions/LinkActions';
+import { LINK_CREATE, LINK_EDIT, LINK_DELETE, LINK_LIST } from '../actions/LinkActions';
 
 const initialState = {
   link: null,
+  links: [],
 }
 
 export default function(state = initialState, action){
@@ -10,6 +11,9 @@ export default function(state = initialState, action){
     case LINK_CREATE:
       const { link } = payload.data;
       return { ...state, link };
+    case LINK_LIST:
+      const { data: links } = payload.data;
+      return { ...state, links };
     case LINK_EDIT:
     case LINK_DELETE:
     default:
