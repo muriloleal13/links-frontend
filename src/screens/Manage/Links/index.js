@@ -41,7 +41,7 @@ const Links = ({ links, linkList }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { links: state.link.links };
+  return { links: state.link.link };
 };
 
 export default connect(mapStateToProps, { linkList })(Links);

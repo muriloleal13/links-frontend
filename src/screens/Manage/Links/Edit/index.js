@@ -4,19 +4,26 @@ import { useParams } from 'react-router-dom';
 import Layout from '../../../Layouts/Manage/';
 import FormGroup from '../../../../components/FormGroup';
 import FormCheck from '../../../../components/FormCheck';
-import { linkEdit } from '../../../../actions/LinkActions';
+import { linkEdit, linkUpdate } from '../../../../actions/LinkActions';
+import { getFormData } from '../../../../helpers/form';
 
-const Edit = ({ link, linkEdit }) => {
+const Edit = ({ link, linkEdit, linkUpdate }) => {
   const { id } = useParams();
 
   useEffect(() => {
     linkEdit(id);
   }, [id, linkEdit]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    linkUpdate(id, getFormData(e));
+  };
+
   return (
     <Layout>
       <h1>Edit Link</h1>
       <div>
-        <form>
+        <form onSubmit={submitHandler}>
          <FormGroup label="Label" name="label" data={link} type="text"/>
          <FormGroup label="Url" name="url" data={link} type="text"/>
           <FormCheck label="Is Social" name="isSocial" data={link}/>
@@ -33,4 +40,4 @@ const mapStateToProps = (state) => {
   return { link: state.link.link };
 };
 
-export default connect(mapStateToProps, { linkEdit })(Edit);
+export default connect(mapStateToProps, { linkEdit, linkUpdate })(Edit);
