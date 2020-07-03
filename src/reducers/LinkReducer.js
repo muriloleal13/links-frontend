@@ -11,10 +11,15 @@ export default function(state = initialState, action){
     case LINK_CREATE:
       const { link } = payload.data;
       return { ...state, link };
-    case LINK_LIST:
+    case LINK_LIST: {
+      console.log('*** LinkReducer.payload', payload);
       const { data: links } = payload.data;
       return { ...state, links };
-    case LINK_EDIT:
+    }
+    case LINK_EDIT: {
+      const { data: link } = payload.data;
+      return { ...state, link };
+    }
     case LINK_DELETE:
     default:
       return state;

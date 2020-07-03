@@ -16,8 +16,8 @@ export const linkList = (data) => {
   return { type: LINK_LIST, payload };
 };
 
-export const linkEdit = (data) => {
-  const payload = apiPost('/auth/sign-in', data);
+export const linkEdit = (id) => {
+  const payload = apiGet(`/link/${id}`);
   return { type: LINK_EDIT, payload };
 };
 
