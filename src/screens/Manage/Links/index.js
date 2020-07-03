@@ -9,7 +9,7 @@ const Links = ({ links, linkList }) => {
   useEffect(() => {
     linkList();
   }, [linkList]);
-console.log(links);
+
   return (
     <Layout>
       <div className="row">
@@ -22,13 +22,13 @@ console.log(links);
           </Link>
         </div>
       </div>
-      {links && links.length ? links.map((link) => {
+      {links && links.length ? links.map((link, idx) => {
         return (
-          <div className="pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between">
+          <div key={link.id} className="pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between">
             <div className="pr-3"><img src="https://via.placeholder.com/100" alt="Link icon"/></div>
             <div className="align-self-center">
               <span className="text=primary clearfix">{link.label}</span>
-        <span className="text=primary clearfix">{link.url}</span>
+              <span className="text=primary clearfix">{link.url}</span>
             </div>
             <div className="ml-auto p-2 clearfix">
               <span>Edit</span>
