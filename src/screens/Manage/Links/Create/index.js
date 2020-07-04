@@ -10,7 +10,7 @@ const Create = ({ link, linkCreate }) => {
     e.preventDefault();
     linkCreate(getFormData(e));
   };
-
+console.log('**** Manage.Links.Create.link', link);
   if(link) return <Redirect to="/manage/links"/>;
 
   return (

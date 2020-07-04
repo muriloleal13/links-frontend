@@ -3,7 +3,7 @@
 
 .btn-clear {
   background: none;
-  color: none;
+  color: inherit;
   border: nome;
   padding: 0;
   font: inherit;
@@ -15,4 +15,19 @@
     background: none;
     box-shadow: none;
   }
+}
+
+.border-transparent {
+  border-color: rgba(0,0,0,0) !important;
+}
+
+.float-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shadow-bold{
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.5) !important;
 }
